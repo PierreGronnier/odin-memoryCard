@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 20px;
+  color: #d5a946;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.title h2 {
+  margin-top: 2rem;
+  font-size: 25px;
+  color: #088893;
+}
+
+.score-container {
+  margin-left: auto;
+}
+
+.score {
+  display: flex;
+  gap: 20px;
+}
+
+.score p {
+  margin: 0;
+  font-size: 25px;
+}
