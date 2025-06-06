@@ -12,7 +12,7 @@ export default function Header({ score, bestScore }) {
       </div>
       <div className="score-container">
         <div className="score">
-          <p>Score: {score}</p>
+          <p>Score: {score} |</p>
           <p>Best Score: {bestScore}</p>
         </div>
       </div>
