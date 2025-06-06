@@ -22,7 +22,14 @@ function App() {
     "/background4.jpg",
     "/background5.jpg",
   ];
+
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+  useEffect(() => {
+    backgrounds.forEach((bg) => {
+      new Image().src = bg;
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -118,7 +125,6 @@ function App() {
         ))}
       </div>
       <ModalOver isOpen={isGameOver} onRestart={restartGame} score={score} />
-
       <Footer />
     </div>
   );
