@@ -25,7 +25,6 @@ To run this project locally:
    npm install
    ```
 3. Start the development server:
-
-```npm run dev
-
-```
+   ```bash
+   npm run dev
+   ```
