@@ -24,20 +24,30 @@ function App() {
   ];
 
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const [currentBackground, setCurrentBackground] = useState(backgrounds[0]);
 
   useEffect(() => {
     backgrounds.forEach((bg) => {
-      new Image().src = bg;
+      const img = new Image();
+      img.src = bg;
     });
   }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+      const nextIndex = (currentBgIndex + 1) % backgrounds.length;
+      const nextBg = backgrounds[nextIndex];
+
+      const img = new Image();
+      img.src = nextBg;
+      img.onload = () => {
+        setCurrentBgIndex(nextIndex);
+        setCurrentBackground(nextBg);
+      };
     }, 10000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentBgIndex]);
 
   useEffect(() => {
     const fetchChampions = async () => {
@@ -63,7 +73,6 @@ function App() {
 
   const getRandomChampions = (all, clicked, round) => {
     const numTotal = 12;
-
     let numClickedToShow = Math.min(clicked.length, Math.floor(round / 2) + 1);
     numClickedToShow = Math.min(numClickedToShow, numTotal - 1);
 
@@ -111,7 +120,7 @@ function App() {
     <div className="app-container">
       <div
         className="background"
-        style={{ backgroundImage: `url(${backgrounds[currentBgIndex]})` }}
+        style={{ backgroundImage: `url(${currentBackground})` }}
       />
       <Header score={score} bestScore={bestScore} />
       <div className="cards-container">
