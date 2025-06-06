@@ -42,19 +42,16 @@ function App() {
   const handleClick = (champion) => {
     const alreadyClicked = clickedChampions.find((c) => c.id === champion.id);
     if (alreadyClicked) {
-      // Player loses
       alert("You clicked the same champion! Game reset.");
       setBestScore((prev) => Math.max(prev, score));
       setScore(0);
       setClickedChampions([]);
     } else {
-      // Good click
       const newScore = score + 1;
       setScore(newScore);
       setClickedChampions([...clickedChampions, champion]);
     }
 
-    // Always reshuffle after each click
     setDisplayedChampions(getRandomChampions(allChampions));
   };
 

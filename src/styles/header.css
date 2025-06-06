@@ -4,7 +4,7 @@
   align-items: flex-start;
   padding: 10px 20px;
   color: #d5a946;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   box-sizing: border-box;

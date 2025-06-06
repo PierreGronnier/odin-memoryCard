@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .background {
@@ -27,10 +27,17 @@
   grid-template-columns: repeat(6, 1fr);
   justify-content: center;
   align-content: center;
+  margin-top: 3%;
   gap: 20px;
   padding: 40px;
   width: 100%;
   max-width: 1200px;
   z-index: 1;
   box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
